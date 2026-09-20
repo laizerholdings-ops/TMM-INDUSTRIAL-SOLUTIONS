@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMM Industrial Solutions (Pty) Ltd | Business Compliance & Tender Readiness South Africa</title>
+    <meta name="description" content="TMM Industrial Solutions (Pty) Ltd provides professional business compliance, CIPC registration, tax clearances, CSD registration, COIDA, and tender readiness solutions in South Africa.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0B2545',
+                            orange: '#F77F00',
+                            yellow: '#FCBF49',
+                            dark: '#03071E',
+                            light: '#F8F9FA'
+                        },
+                        corporate: {
+                            950: '#03071E',
+                            900: '#0B2545',
+                            800: '#13315C',
+                            700: '#1d4ed8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Animation 1: Floating Badge */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Animation 2: WhatsApp Pulse */
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(247, 127, 0, 0.5); }
+            50% { transform: scale(1.06); box-shadow: 0 0 0 16px rgba(247, 127, 0, 0); }
+        }
+        .whatsapp-pulse {
+            animation: pulse-soft 2.5s infinite;
+        }
+
+        /* Animation 3: Infinite Ticker */
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 32s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        /* Animation 4: Shimmer Highlight */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .animate-shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Animation 5: Glowing Card Border */
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.7; box-shadow: 0 0 15px rgba(247, 127, 0, 0.2); }
+            50% { opacity: 1; box-shadow: 0 0 30px rgba(247, 127, 0, 0.4); }
+        }
+        .animate-glow {
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+
+        /* Glassmorphism transparent styling to keep background video clearly visible */
+        .glass-nav {
+            background: rgba(3, 7, 30, 0.75);
+            backdrop-filter: blur(14px);
+        }
+        .glass-card {
+            background: rgba(11, 37, 69, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(247, 127, 0, 0.25);
+        }
+        .glass-section {
+            background: rgba(3, 7, 30, 0.55);
+            backdrop-filter: blur(12px);
+        }
+        .glass-section-light {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+        }
+        .card-hover {
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 40px -15px rgba(247, 127, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300 relative overflow-x-hidden" id="main-body">
+
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-45 scale-105" id="bg-video">
+            <source src="background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="absolute inset-0 bg-[url('background.png')] bg-cover bg-center -z-10 opacity-30"></div>
+        <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-[1px]" id="video-overlay"></div>
+    </div>
+
+    <div class="bg-brand-dark/80 backdrop-blur-md text-brand-yellow text-xs sm:text-sm py-2 px-4 border-b border-brand-orange/20 overflow-hidden relative z-50" id="ticker-banner">
+        <div class="whitespace-nowrap animate-ticker flex items-center space-x-12">
+            <span><i class="fas fa-shield-alt text-brand-orange mr-2"></i> Company Reg: 2026/332788/07</span>
+            <span><i class="fas fa-map-marker-alt text-brand-orange mr-2"></i> 234 Matsulu, Matsulu, Mpumalanga, 1203 (Nationwide Services)</span>
+            <span><i class="fas fa-envelope text-brand-orange mr-2"></i> thulanimalumane02@gmail.com</span>
+            <span><i class="fas fa-phone-alt text-brand-orange mr-2"></i> 076 061 0250</span>
+            <span><i class="fas fa-check-circle text-brand-orange mr-2"></i> 100% Compliant & Tender-Ready Solutions</span>
+        </div>
+    </div>
+
+    <header id="navbar" class="sticky top-0 z-50 glass-nav border-b border-slate-800/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="bg-brand-blue/90 text-white p-2.5 rounded-2xl flex flex-col items-center justify-center font-black tracking-tighter shadow-xl shadow-brand-orange/20 border border-brand-orange/40 group-hover:scale-105 transition-transform">
+                        <span class="text-2xl text-brand-orange leading-none">TMM</span>
+                        <span class="text-[9px] text-slate-300 font-semibold tracking-wider mt-0.5">INDUSTRIAL</span>
+                    </div>
+                    <div>
+                        <span class="text-base sm:text-lg font-extrabold tracking-tight text-white block nav-title-text leading-tight">TMM INDUSTRIAL SOLUTIONS</span>
+                        <span class="text-xs font-semibold text-brand-yellow">Reg: <span class="text-white font-bold">2026/332788/07</span></span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu (Home, Services, About Us, Contact only) -->
+                <nav class="hidden xl:flex items-center space-x-6 text-sm font-semibold tracking-wide">
+                    <a href="#home" class="text-brand-yellow hover:text-brand-orange transition-colors">HOME</a>
+                    <a href="#services" class="text-slate-200 hover:text-brand-orange transition-colors nav-link-item">SERVICES</a>
+                    <a href="#about" class="text-slate-200 hover:text-brand-orange transition-colors nav-link-item">ABOUT US</a>
+                    <a href="#contact" class="text-slate-200 hover:text-brand-orange transition-colors nav-link-item">CONTACT</a>
+                    
+                    <!-- Day/Night Toggle Button -->
+                    <button id="theme-toggle" aria-label="Toggle Day/Night Mode" class="ml-2 p-2.5 rounded-xl bg-slate-800/80 text-brand-yellow border border-slate-700 hover:bg-brand-orange hover:text-white transition-all shadow-md flex items-center space-x-2">
+                        <i id="theme-icon" class="fas fa-moon text-lg"></i>
+                        <span id="theme-text" class="text-xs uppercase font-bold">Night</span>
+                    </button>
+                </nav>
+
+                <!-- Mobile Header Controls -->
+                <div class="flex items-center space-x-3 xl:hidden">
+                    <button id="theme-toggle-mobile" aria-label="Toggle Day/Night Mode Mobile" class="p-2.5 rounded-xl bg-slate-800/80 text-brand-yellow border border-slate-700 hover:bg-brand-orange hover:text-white transition-all shadow-md">
+                        <i id="theme-icon-mobile" class="fas fa-moon text-base"></i>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="Toggle Mobile Menu" class="text-slate-200 hover:text-brand-orange focus:outline-none p-2 rounded-lg bg-slate-800/80 border border-slate-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-slate-950/90 border-b border-slate-800 px-6 py-5 space-y-4 shadow-2xl backdrop-blur-xl">
+            <a href="#home" class="block text-brand-yellow font-semibold py-2 border-b border-slate-800/60 mobile-nav-link">HOME</a>
+            <a href="#services" class="block text-slate-200 hover:text-brand-orange font-medium py-2 border-b border-slate-800/60 mobile-nav-link">SERVICES</a>
+            <a href="#about" class="block text-slate-200 hover:text-brand-orange font-medium py-2 border-b border-slate-800/60 mobile-nav-link">ABOUT US</a>
+            <a href="#contact" class="block text-slate-200 hover:text-brand-orange font-medium py-2 mobile-nav-link">CONTACT</a>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-20 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-yellow text-xs sm:text-sm font-bold tracking-wide uppercase animate-float shadow-lg">
+                        <i class="fa-solid fa-shield-halved text-brand-orange"></i>
+                        <span>Company Reg: 2026/332788/07</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight drop-shadow-md">
+                        TAKE YOUR BUSINESS <br class="hidden sm:inline"><span class="text-brand-orange">TO THE NEXT LEVEL!</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-200 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed drop-shadow">
+                        Get compliant. Get credible. Get more opportunities. Your trusted partner in business compliance, CIPC registration, tax clearances, and tender readiness based in Matsulu, Mpumalanga, proudly serving entrepreneurs across South Africa.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#services" class="w-full sm:w-auto text-center bg-brand-orange hover:bg-orange-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 text-base">
+                            View Price List & Services
+                        </a>
+                        <a href="https://wa.me/27760610250?text=Hello%20TMM%20Industrial%20Solutions,%20I%20would%20like%20assistance%20with%20compliance%20and%20registration." target="_blank" class="w-full sm:w-auto text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 flex items-center justify-center space-x-3 text-base">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>Chat on WhatsApp</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Trust Badges Bar -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-slate-700/60 text-xs font-semibold text-slate-200">
+                        <div class="flex items-center space-x-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-circle-check text-brand-orange text-base"></i>
+                            <span>100% Compliant</span>
+                        </div>
+                        <div class="flex items-center space-x-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-award text-brand-orange text-base"></i>
+                            <span>Tender Ready</span>
+                        </div>
+                        <div class="flex items-center space-x-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-bolt text-brand-orange text-base"></i>
+                            <span>Fast & Reliable</span>
+                        </div>
+                        <div class="flex items-center space-x-2 justify-center lg:justify-start">
+                            <i class="fa-solid fa-headset text-brand-orange text-base"></i>
+                            <span>Expert Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Package Card Highlight -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-2xl relative card-hover animate-glow">
+                        <div class="absolute -top-4 -right-4 bg-brand-orange text-white text-xs font-black px-4 py-2 rounded-xl shadow-lg uppercase tracking-wider">
+                            Best Value Deal
+                        </div>
+                        <div class="text-center space-y-4">
+                            <span class="text-brand-yellow font-black uppercase tracking-widest text-xs">All Inclusive Bundle</span>
+                            <h3 class="text-3xl font-black text-white">Full Compliance Package</h3>
+                            <div class="text-5xl font-black text-brand-orange tracking-tight">R1,600</div>
+                            <p class="text-slate-200 text-sm">Save time and money. Stay compliant and ready for major corporate and government tenders.</p>
+                            
+                            <ul class="text-left space-y-3 pt-4 text-sm font-medium text-slate-100 border-t border-slate-700/60">
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>CIPC Company Registration</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>CSD Registration (Tender Ready)</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>TCS Package (Tax Returns & Compliance)</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>Tax Clearance Certificate</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>Business Account Assistance</span></li>
+                                <li class="flex items-center space-x-3"><i class="fa-solid fa-check-circle text-brand-orange"></i><span>COIDA Registration & Letter of Good Standing</span></li>
+                            </ul>
+
+                            <div class="pt-6">
+                                <a href="https://wa.me/27760610250?text=Hello%20TMM,%20I%20want%20to%20order%20the%20Full%20Compliance%20Package%20for%20R1600" target="_blank" class="block w-full bg-brand-orange hover:bg-orange-600 text-white font-extrabold py-4 rounded-xl shadow-lg transition text-center text-base">
+                                    Claim Full Package Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 glass-section border-t border-slate-800/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-brand-orange/10 text-brand-orange text-xs font-bold uppercase tracking-wider">
+                        <i class="fas fa-building"></i>
+                        <span>Corporate Overview</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                        ABOUT TMM INDUSTRIAL SOLUTIONS (PTY) LTD
+                    </h2>
+                    <p class="text-slate-200 leading-relaxed text-base sm:text-lg">
+                        Based in Matsulu, Mpumalanga (Company Registration No: <span class="text-brand-orange font-bold">2026/332788/07</span>), TMM Industrial Solutions is a premier business consultation, statutory registration, and tender readiness advisory firm dedicated to South African entrepreneurs and growing enterprises.
+                    </p>
+                    <p class="text-slate-200 leading-relaxed text-base">
+                        Navigating compliance with the Companies and Intellectual Property Commission (CIPC), the South African Revenue Service (SARS), and the Central Supplier Database (CSD) can be overwhelming. We take away the administrative burden so you can focus 100% on scaling your operations and winning lucrative government and corporate tenders.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="glass-card p-4 rounded-xl">
+                            <h3 class="font-bold text-white text-base mb-1 flex items-center"><i class="fas fa-bullseye text-brand-orange mr-2"></i> Our Mission</h3>
+                            <p class="text-xs text-slate-200">To simplify regulatory compliance and empower businesses with legal credibility and tender readiness.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl">
+                            <h3 class="font-bold text-white text-base mb-1 flex items-center"><i class="fas fa-eye text-brand-orange mr-2"></i> Our Vision</h3>
+                            <p class="text-xs text-slate-200">To be South Africa's most trusted partner in industrial compliance, enterprise development, and job creation.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Professional Image Assets (about.png & background.png) -->
+                <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="glass-card rounded-2xl overflow-hidden shadow-2xl card-hover group relative">
+                        <div class="h-56 overflow-hidden bg-slate-950/80">
+                            <img src="about.png" alt="TMM About Asset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/0b2545/ffffff?text=TMM+Workspace'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-white font-bold text-lg mb-2">PROFESSIONAL WORKSPACE</h3>
+                            <p class="text-slate-200 text-sm">Dedicated corporate environment built for business excellence and compliance administration.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl overflow-hidden shadow-2xl card-hover group relative">
+                        <div class="h-56 overflow-hidden bg-slate-950/80">
+                            <img src="background.png" alt="TMM Background Asset" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/13315c/ffffff?text=TMM+Operations'">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-white font-bold text-lg mb-2">CORPORATE OPERATIONS</h3>
+                            <p class="text-slate-200 text-sm">Empowering South African enterprises with reliable administration, CSD, and tender readiness.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 glass-section border-t border-slate-800/60 relative z-10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-brand-orange font-extrabold uppercase tracking-widest text-xs">Transparent Pricing</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Our Price List & Services</h2>
+                <p class="text-slate-200 max-w-xl mx-auto text-base">We help businesses stay compliant, legally registered and tender-ready. Professional, reliable, and affordable.</p>
+            </div>
+
+            <!-- Price Table Header -->
+            <div class="bg-brand-blue/90 text-white rounded-t-2xl px-6 py-5 flex justify-between items-center font-black text-base sm:text-lg tracking-wide shadow border-b border-slate-700">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-file-invoice-dollar text-brand-orange text-2xl"></i>
+                    <span>OUR SERVICES & PRICES</span>
+                </div>
+                <div>PRICE</div>
+            </div>
+
+            <!-- Price Table Body -->
+            <div class="glass-card rounded-b-2xl overflow-hidden divide-y divide-slate-800/80">
+                
+                <!-- Service 1 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-landmark text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">CIPC COMPANY REGISTRATION</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">Registration of your company with CIPC. Includes name reservation and company documents.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R425</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20would%20like%20to%20register%20a%20CIPC%20Company%20for%20R425" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-users-gear text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">CSD REGISTRATION</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">Register your business on the Central Supplier Database and become tender-ready.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R250</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20would%20like%20CSD%20Registration%20for%20R250" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-file-shield text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">TCS PACKAGE</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">(Registered Representative, Tax Returns, Compliance and Tax Clearance)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R1,500</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20would%20like%20the%20TCS%20Package%20for%20R1500" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-certificate text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">TAX CLEARANCE CERTIFICATE</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">Get your Tax Clearance Certificate quickly and easily.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R250</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20would%20like%20a%20Tax%20Clearance%20Certificate%20for%20R250" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-building-columns text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">BUSINESS ACCOUNT ASSISTANCE</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">We assist you in opening a business bank account.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R250</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20need%20Business%20Account%20Assistance%20for%20R250" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-white/5 transition-all">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-brand-orange/20 text-brand-orange p-4 rounded-2xl shrink-0">
+                            <i class="fa-solid fa-shield-halved text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg sm:text-xl font-black text-white">COIDA REGISTRATION</h3>
+                            <p class="text-sm text-slate-200 mt-1 font-medium">Register your business with COIDA and get your Letter of Good Standing.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between sm:justify-end space-x-6 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-700/60">
+                        <span class="text-2xl sm:text-3xl font-black text-brand-orange">R500</span>
+                        <a href="https://wa.me/27760610250?text=Hi%20TMM,%20I%20would%20like%20COIDA%20Registration%20for%20R500" target="_blank" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-bold shadow transition">Order Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 glass-section border-t border-slate-800/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 sm:p-16 shadow-2xl relative overflow-hidden border border-brand-orange/40">
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-orange/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-block bg-brand-orange text-white font-black text-xs uppercase px-3.5 py-1.5 rounded-lg tracking-widest">
+                            Best Value Offer
+                        </div>
+                        <h2 class="text-3xl sm:text-5xl font-black tracking-tight text-white">Full Compliance Package</h2>
+                        <p class="text-slate-200 text-base sm:text-lg font-light leading-relaxed">
+                            Get fully compliant, credible, and tender-ready instantly. Everything you need to win government and corporate contracts in one affordable bundle!
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">CIPC Registration</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">CSD Registration</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">TCS Package</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">Tax Clearance Certificate</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">Business Account Assistance</span>
+                            </div>
+                            <div class="flex items-center space-x-3 bg-white/10 p-3.5 rounded-xl border border-white/10">
+                                <i class="fa-solid fa-circle-check text-brand-orange text-lg"></i>
+                                <span class="text-sm font-bold text-white">COIDA Registration</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-5 text-center bg-slate-900/80 backdrop-blur-xl text-white p-8 sm:p-10 rounded-2xl shadow-2xl space-y-6 border border-brand-orange/40">
+                        <span class="text-xs font-black uppercase tracking-widest text-slate-300 block">Complete Compliance Solution</span>
+                        <div class="text-6xl sm:text-7xl font-black text-brand-orange tracking-tight">R1,600</div>
+                        <p class="text-xs sm:text-sm font-medium text-slate-200">Save time. Save money. Stay compliant. Focus 100% on growing your business.</p>
+                        <a href="https://wa.me/27760610250?text=Hello%20TMM,%20I%20want%20to%20get%20the%20Full%20Compliance%20Package%20for%20R1600" target="_blank" class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-xl text-lg shadow-lg transition transform hover:scale-[1.02]">
+                            <i class="fab fa-whatsapp mr-2 text-2xl"></i> Order Package Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 glass-section border-t border-slate-800/60 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-brand-orange font-extrabold uppercase tracking-widest text-xs">Client Success Stories</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">What Our South African Clients Say</h2>
+                <p class="text-slate-200 max-w-xl mx-auto text-base">Trusted by entrepreneurs, contractors, and growing businesses across Mpumalanga and nationwide.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between card-hover shadow-xl">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-yellow space-x-1 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-sm italic leading-relaxed">
+                            "TMM Industrial Solutions helped us register our company and secure our CSD registration in record time. Their guidance with tax clearance was exceptional. Highly recommended!"
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-slate-700/60 flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-brand-orange/20 text-brand-orange font-bold flex items-center justify-center text-base">TM</div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Thabo Mokoena</h4>
+                            <p class="text-xs text-slate-300">Director, Mokoena Civil Projects (Nelspruit)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between card-hover shadow-xl">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-yellow space-x-1 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-sm italic leading-relaxed">
+                            "Getting the Full Compliance Package for R1,600 was the best business decision I made. COIDA, CIPC, and CSD all sorted out professionally without any stress in Matsulu."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-slate-700/60 flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-brand-orange/20 text-brand-orange font-bold flex items-center justify-center text-base">SN</div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Sipho Nkosi</h4>
+                            <p class="text-xs text-slate-300">Founder, Nkosi Logistics & Supplies (Mpumalanga)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 flex flex-col justify-between card-hover shadow-xl">
+                    <div class="space-y-4">
+                        <div class="flex text-brand-yellow space-x-1 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-200 text-sm italic leading-relaxed">
+                            "Their business account assistance and tax clearance services are top-notch. Fast, reliable, and extremely professional customer support every step of the way."
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-slate-700/60 flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-full bg-brand-orange/20 text-brand-orange font-bold flex items-center justify-center text-base">ZL</div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Zanele Langa</h4>
+                            <p class="text-xs text-slate-300">Managing Director, Langa Trading Enterprises</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 glass-section border-t border-slate-800/60 z-10 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-3 mb-16">
+                <span class="text-brand-orange font-extrabold uppercase tracking-widest text-xs">Got Questions?</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white">Frequently Asked Questions</h2>
+                <p class="text-slate-200 max-w-xl mx-auto text-base">Find professional answers regarding our company registration, CSD, tax clearances, and compliance packages.</p>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-bold hover:text-brand-orange transition-colors">
+                        <span>What is included in the Full Compliance Package for R1,600?</span>
+                        <i class="fas fa-chevron-down text-brand-orange transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-slate-700/60 pt-3">
+                        The Full Compliance Package includes CIPC Company Registration (PTY LTD), Central Supplier Database (CSD) Registration, TCS Tax Compliance Status Package, Tax Clearance Certificate, Business Account Opening Assistance, and COIDA Registration with a Letter of Good Standing.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-bold hover:text-brand-orange transition-colors">
+                        <span>How long does CIPC company registration take?</span>
+                        <i class="fas fa-chevron-down text-brand-orange transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-slate-700/60 pt-3">
+                        CIPC company registration typically takes between 1 to 3 business days, depending on name approval and CIPC processing queues. We ensure all documents are properly submitted and verified.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-bold hover:text-brand-orange transition-colors">
+                        <span>Do you operate nationwide in South Africa?</span>
+                        <i class="fas fa-chevron-down text-brand-orange transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-slate-700/60 pt-3">
+                        Yes! While our physical offices are based at 234 Matsulu, Mpumalanga, we provide online and digital compliance, registration, and tender readiness services to businesses across all nine provinces of South Africa.
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden shadow-lg">
+                    <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-bold hover:text-brand-orange transition-colors">
+                        <span>How can I place an order or get in touch?</span>
+                        <i class="fas fa-chevron-down text-brand-orange transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-200 text-sm leading-relaxed border-t border-slate-700/60 pt-3">
+                        You can instantly chat with our team on WhatsApp via 076 061 0250, email us at thulanimalumane02@gmail.com, or fill out our contact enquiry form below.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 glass-section border-t border-slate-800/60 z-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-orange font-extrabold uppercase tracking-widest text-xs">Let's Connect</span>
+                        <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">Get In Touch Today</h2>
+                        <p class="text-slate-200 text-base leading-relaxed">
+                            Ready to take your business to the next level? Contact TMM Industrial Solutions (Pty) Ltd for fast, reliable, and professional compliance solutions.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-brand-orange/20 text-brand-orange p-3.5 rounded-xl shrink-0"><i class="fab fa-whatsapp text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">WhatsApp Us</h4>
+                                <a href="https://wa.me/27760610250" target="_blank" class="text-brand-yellow font-bold hover:underline">076 061 0250</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-brand-orange/20 text-brand-orange p-3.5 rounded-xl shrink-0"><i class="fa-solid fa-envelope text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Email Address</h4>
+                                <a href="mailto:thulanimalumane02@gmail.com" class="text-slate-200 hover:text-white">thulanimalumane02@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-brand-orange/20 text-brand-orange p-3.5 rounded-xl shrink-0"><i class="fa-solid fa-location-dot text-2xl"></i></div>
+                            <div>
+                                <h4 class="font-bold text-white text-base">Physical Location</h4>
+                                <p class="text-slate-200 text-sm">234 Matsulu, Matsulu, Mpumalanga, 1203</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compact Formspree Form Column (Nicely sized, not taking entire screen) -->
+                <div class="lg:col-span-7 flex justify-center">
+                    <div class="glass-card p-8 sm:p-10 rounded-3xl shadow-2xl w-full max-w-xl">
+                        <h3 class="text-2xl font-black text-white mb-6">Send Us A Message</h3>
+                        <form id="enquiry-form" action="https://formspree.io/f/mqpapaqd" method="POST" class="space-y-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 uppercase mb-1.5">Full Name *</label>
+                                <input type="text" name="name" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition" placeholder="Enter your full name">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-200 uppercase mb-1.5">Phone Number *</label>
+                                    <input type="tel" name="phone" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition" placeholder="076 000 0000">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-200 uppercase mb-1.5">Email Address *</label>
+                                    <input type="email" name="email" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition" placeholder="name@example.co.za">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 uppercase mb-1.5">Select Service *</label>
+                                <select name="service" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition">
+                                    <option value="" disabled selected>Select a service...</option>
+                                    <option value="Full Compliance Package (R1600)">Full Compliance Package (R1,600)</option>
+                                    <option value="CIPC Company Registration (R425)">CIPC Company Registration (R425)</option>
+                                    <option value="CSD Registration (R250)">CSD Registration (R250)</option>
+                                    <option value="TCS Package (R1500)">TCS Package (R1,500)</option>
+                                    <option value="Tax Clearance Certificate (R250)">Tax Clearance Certificate (R250)</option>
+                                    <option value="Business Account Assistance (R250)">Business Account Assistance (R250)</option>
+                                    <option value="COIDA Registration (R500)">COIDA Registration (R500)</option>
+                                    <option value="Other">Other Inquiry</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-200 uppercase mb-1.5">Message *</label>
+                                <textarea rows="3" name="message" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-orange transition" placeholder="Tell us about your compliance requirements..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 text-base">
+                                <span>Send Enquiry Now</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark/90 backdrop-blur-md text-white pt-20 pb-10 border-t border-slate-800 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-800">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-brand-blue text-white p-2.5 rounded-xl flex flex-col items-center justify-center font-black">
+                            <span class="text-lg text-brand-orange">TMM</span>
+                        </div>
+                        <span class="text-base font-extrabold tracking-tight text-white">TMM INDUSTRIAL SOLUTIONS</span>
+                    </div>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Your partner in business compliance & tender readiness. We simplify compliance, you grow your business.
+                    </p>
+                    <div class="text-xs text-slate-300 font-medium">
+                        Company Reg No: <span class="text-brand-orange font-bold">2026/332788/07</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white tracking-wide">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center space-x-3">
+                            <i class="fab fa-whatsapp text-emerald-500 text-xl"></i>
+                            <a href="https://wa.me/27760610250" target="_blank" class="hover:text-white font-bold text-white text-base">076 061 0250</a>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-brand-orange text-lg"></i>
+                            <a href="mailto:thulanimalumane02@gmail.com" class="hover:text-white">thulanimalumane02@gmail.com</a>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-orange text-lg mt-1"></i>
+                            <span>234 Matsulu, Matsulu, Mpumalanga, 1203</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white tracking-wide">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-300 font-medium">
+                        <li><a href="#home" class="hover:text-brand-orange transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-brand-orange transition">Services</a></li>
+                        <li><a href="#about" class="hover:text-brand-orange transition">About Us</a></li>
+                        <li><a href="#contact" class="hover:text-brand-orange transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-lg font-bold text-white tracking-wide">Get In Touch Today</h4>
+                    <p class="text-xs text-slate-300 leading-relaxed">Proudly serving businesses across South Africa with quick, easy, and reliable compliance solutions.</p>
+                    <a href="https://wa.me/27760610250?text=Hello%20TMM%20Industrial%20Solutions,%20I%20need%20help%20with..." target="_blank" class="inline-flex items-center space-x-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-sm transition shadow-lg">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 space-y-4 sm:space-y-0">
+                <p>&copy; 2026 TMM Industrial Solutions (Pty) Ltd. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-200">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-200">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/27760610250?text=Hello%20TMM%20Industrial%20Solutions,%20I%20would%20like%20to%20get%20started%20with%20my%20business%20registration." target="_blank" class="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl whatsapp-pulse hover:bg-emerald-700 transition" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center px-4">
+        <div class="glass-card border border-brand-orange/40 rounded-3xl p-8 max-w-md w-full text-center shadow-2xl space-y-4">
+            <div class="w-16 h-16 bg-brand-orange/20 text-brand-orange rounded-full flex items-center justify-center text-3xl mx-auto border border-brand-orange/40">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Enquiry Received!</h3>
+            <p class="text-slate-200 text-sm">Thank you for contacting TMM Industrial Solutions (Pty) Ltd. One of our professional consultants will get in touch with you shortly.</p>
+            <button id="close-modal" class="w-full bg-brand-orange hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition-all">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Day / Night Theme Toggle Functionality with Transparent Glass Support
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeIconMobile = document.getElementById('theme-icon-mobile');
+        const themeText = document.getElementById('theme-text');
+        const mainBody = document.getElementById('main-body');
+        const navbar = document.getElementById('navbar');
+        const videoOverlay = document.getElementById('video-overlay');
+
+        let isDarkMode = true;
+        function toggleTheme() {
+            isDarkMode = !isDarkMode;
+            const glassSections = document.querySelectorAll('.glass-section, .glass-card');
+            
+            if (isDarkMode) {
+                mainBody.classList.remove('bg-white', 'text-slate-900');
+                mainBody.classList.add('bg-slate-950', 'text-slate-100');
+                if (videoOverlay) videoOverlay.className = 'absolute inset-0 bg-slate-950/40 backdrop-blur-[1px]';
+                
+                glassSections.forEach(el => {
+                    el.style.backgroundColor = '';
+                    el.style.borderColor = '';
+                });
+
+                if (themeIcon) themeIcon.className = 'fas fa-moon text-lg';
+                if (themeIconMobile) themeIconMobile.className = 'fas fa-moon text-base';
+                if (themeText) themeText.textContent = 'Night';
+            } else {
+                mainBody.classList.remove('bg-slate-950', 'text-slate-100');
+                mainBody.classList.add('bg-white', 'text-slate-900');
+                if (videoOverlay) videoOverlay.className = 'absolute inset-0 bg-white/40 backdrop-blur-[1px]';
+
+                glassSections.forEach(el => {
+                    el.style.backgroundColor = 'rgba(255, 255, 255, 0.65)';
+                    el.style.borderColor = 'rgba(247, 127, 0, 0.35)';
+                });
+
+                if (themeIcon) themeIcon.className = 'fas fa-sun text-lg text-amber-500';
+                if (themeIconMobile) themeIconMobile.className = 'fas fa-sun text-base text-amber-500';
+                if (themeText) themeText.textContent = 'Day';
+            }
+        }
+
+        if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+        if (themeToggleMobileBtn) themeToggleMobileBtn.addEventListener('click', toggleTheme);
+
+        // FAQ Accordion Functionality
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                content.classList.toggle('hidden');
+                if (icon) {
+                    icon.classList.toggle('rotate-180');
+                }
+            });
+        });
+
+        // Contact Form Submission via Formspree
+        const enquiryForm = document.getElementById('enquiry-form');
+        const successModal = document.getElementById('success-modal');
+        const closeModal = document.getElementById('close-modal');
+
+        if (enquiryForm) {
+            enquiryForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(enquiryForm);
+
+                try {
+                    const response = await fetch(enquiryForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        successModal.classList.remove('hidden');
+                        enquiryForm.reset();
+                    } else {
+                        alert('There was a problem submitting your form. Please try again.');
+                    }
+                } catch (error) {
+                    alert('Network error. Please check your connection and try again.');
+                }
+            });
+        }
+
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                successModal.classList.add('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
